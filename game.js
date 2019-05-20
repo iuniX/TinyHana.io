@@ -3418,48 +3418,53 @@ var game;
             var _this = this;
             //Delta Time
             var dt = this.scheduler.deltaTime();
-            var speed = 1;
             this.world.forEach([game.Movement, ut.Core2D.TransformLocalPosition, game.MousePressed, game.SpawnerTimers, game.lastPosition, game.Limits, game.Scales], function (movement, transformLocalPosition, mousePressed, spawner, lastPosition, limits, scales) {
                 var localPosition = transformLocalPosition.position;
-                if (ut.Runtime.Input.getMouseButton(0) || ut.Core2D.Input.touchCount() > 0) //Checking touch and mouse
-                    {
-                        var mouseInputPos_1 = ut.Runtime.Input.getWorldInputPosition(_this.world);
-                        if (mousePressed.mousePressed == false) {
-                            var random = Math.floor(Math.random() * (3 - 0)) + 0;
-                            while (mousePressed.actualHandId == random) {
-                                random = Math.floor(Math.random() * (3 - 0)) + 0;
-                            }
-                            mousePressed.actualHandId = random;
-                            mousePressed.mousePressed = true;
+                if (ut.Runtime.Input.getMouseButton(0) || ut.Core2D.Input.touchCount() > 0) {
+                    var mouseInputPos_1 = ut.Runtime.Input.getWorldInputPosition(_this.world);
+                    if (mousePressed.mousePressed == false) {
+                        var random = Math.floor(Math.random() * (3 - 0)) + 0;
+                        while (mousePressed.actualHandId == random) {
+                            random = Math.floor(Math.random() * (3 - 0)) + 0;
                         }
+                        mousePressed.actualHandId = random;
+                        mousePressed.mousePressed = true;
+                    }
+                    var speed = Math.abs(mouseInputPos_1.x - lastPosition.x);
+                    if (speed < 10) {
                         if (localPosition.x < mouseInputPos_1.x) {
-                            localPosition.x = localPosition.x + speed * dt;
+                            localPosition.x = localPosition.x + speed / 2 * dt;
                         } else if (localPosition.x > mouseInputPos_1.x) {
-                            localPosition.x = localPosition.x - speed * dt;
+                            localPosition.x = localPosition.x - speed / 2 * dt;
                         }
-                        var time = spawner.time;
-                        var delay = spawner.delay;
-                        time -= _this.scheduler.deltaTime();
-                        if (time <= 0) {
-                            var instance = ut.EntityGroup.instantiate(_this.world, "game.Hand" + mousePressed.actualHandId)[0];
-                            _this.world.usingComponentData(instance, [ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalScale, ut.Core2D.TransformLocalRotation, game.PalmPivot], function (handPosition, handScale, handRotation, pivot) {
-                                var tempPos = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
-                                var angle = Math.atan2(mouseInputPos_1.y - lastPosition.y, mouseInputPos_1.x - lastPosition.x) - Math.PI / 2;
-                                handRotation.rotation = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), angle);
-                                handPosition.position = tempPos;
-                                if (scales.actualScale == 0) {
-                                    scales.actualScale = handScale.scale.x + 0.03;
-                                    ;
-                                }
-                                //console.log(Vector3.Distance(lastPosition, mouseInputPos));
-                                handScale.scale.x = scales.actualScale - 0.03;
-                                handScale.scale.y = scales.actualScale - 0.03;
-                                scales.actualScale = scales.actualScale - 0.03;
-                            });
-                            time += delay;
-                        }
-                        spawner.time = time;
-                    } else {
+                    }
+                    if (localPosition.x < mouseInputPos_1.x) {
+                        localPosition.x = localPosition.x + speed * dt;
+                    } else if (localPosition.x > mouseInputPos_1.x) {
+                        localPosition.x = localPosition.x - speed * dt;
+                    }
+                    var time = spawner.time;
+                    var delay = spawner.delay;
+                    time -= _this.scheduler.deltaTime();
+                    if (time <= 0) {
+                        var instance = ut.EntityGroup.instantiate(_this.world, "game.Hand" + mousePressed.actualHandId)[0];
+                        _this.world.usingComponentData(instance, [ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalScale, ut.Core2D.TransformLocalRotation, game.PalmPivot], function (handPosition, handScale, handRotation, pivot) {
+                            var tempPos = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
+                            var angle = Math.atan2(mouseInputPos_1.y - lastPosition.y, mouseInputPos_1.x - lastPosition.x) - Math.PI / 2;
+                            handRotation.rotation = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), angle);
+                            handPosition.position = tempPos;
+                            if (scales.actualScale == 0) {
+                                scales.actualScale = handScale.scale.x + 0.03;
+                                ;
+                            }
+                            handScale.scale.x = scales.actualScale - 0.03;
+                            handScale.scale.y = scales.actualScale - 0.03;
+                            scales.actualScale = scales.actualScale - 0.03;
+                        });
+                        time += delay;
+                    }
+                    spawner.time = time;
+                } else {
                     mousePressed.mousePressed = false;
                     spawner.time = 0;
                     spawner.delay = 1;
