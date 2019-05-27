@@ -236,47 +236,137 @@ entities.game.Hand2.Component._dtorFn = function dtor(ptr) { /* POD, no-op */ }
 Object.defineProperties(entities.game.Hand2.Component, { cid: { configurable: true, get: function() { delete entities.game.Hand2.Component.cid; var offsetsPtr = 0, offsetsCount = 0; return entities.game.Hand2.Component.cid = Module._ut_component_register_cid(/*entities.game.Hand2.Component*/ 1, 0, 0, offsetsPtr, offsetsCount, 0/*"entities::game::Hand2::Component"*/, 0, 0); } } });
 Object.defineProperties(entities.game.Hand2.Component.StorageView, { cid: { configurable: true, get: function() { return entities.game.Hand2.Component.cid; } } });
 var game = game || {};
-game.lastPosition = function(arg0, arg1, arg2) {
-  this._x = (+(arg0===undefined ? 0 : arg0));
-  this._y = (+(arg1===undefined ? 0 : arg1));
-  this._z = (+(arg2===undefined ? 0 : arg2));
+game.background = function() {
+};
+game.background.prototype = Object.create(null);
+game.background.prototype.constructor = game.background;
+Object.defineProperties(game.background.prototype, {
+});
+game.background._size = 1;
+game.background._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.background.prototype);
+  return v;
+};
+game.background._toPtr = function(ptr, v) {
+};
+game.background._toTempHeapPtr = function(ptr, v) {
+};
+game.background._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(1);
+  if (v) game.background._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.background.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.background.StorageView.prototype = Object.create(null);
+game.background.StorageView.prototype.constructor = game.background.StorageView;
+game.background._view = game.background.StorageView;
+game.background.StorageView._isSharedComp = game.background._isSharedComp = false;
+game.background.StorageView._fromPtr = game.background._fromPtr;
+game.background.StorageView._toPtr = game.background._toPtr;
+game.background.StorageView._tempHeapPtr = game.background._tempHeapPtr;
+game.background.StorageView._size = game.background._size;
+game.background.StorageView.prototype.$advance = function() {
+  this._ptr += 1;
+};
+Object.defineProperties(game.background.StorageView.prototype, {
+});
+game.background._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.background is a POD type, so a JavaScript side copy constructor game.background._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+Object.defineProperties(game.background, { cid: { configurable: true, get: function() { delete game.background.cid; var offsetsPtr = 0, offsetsCount = 0; return game.background.cid = Module._ut_component_register_cid(/*game.background*/ 1, 0, 0, offsetsPtr, offsetsCount, 0/*"game::background"*/, 0, 0); } } });
+Object.defineProperties(game.background.StorageView, { cid: { configurable: true, get: function() { return game.background.cid; } } });
+game.delay = function(arg0, arg1) {
+  this._timer = (+(arg0===undefined ? 0 : arg0));
+  this._delayBetween = (+(arg1===undefined ? 0 : arg1));
+};
+game.delay.prototype = Object.create(null);
+game.delay.prototype.constructor = game.delay;
+Object.defineProperties(game.delay.prototype, {
+  timer: {
+    get: function() { return this._timer; },
+    set: function(v) { this._timer = (+(v===undefined ? 0 : v)); },
+  },
+  delayBetween: {
+    get: function() { return this._delayBetween; },
+    set: function(v) { this._delayBetween = (+(v===undefined ? 0 : v)); },
+  },
+});
+game.delay._size = 8;
+game.delay._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.delay.prototype);
+  v._timer = HEAPF32[(ptr+0)>>2];
+  v._delayBetween = HEAPF32[(ptr+4)>>2];
+  return v;
+};
+game.delay._toPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.timer;
+  HEAPF32[(ptr+4)>>2] = v.delayBetween;
+};
+game.delay._toTempHeapPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.timer;
+  HEAPF32[(ptr+4)>>2] = v.delayBetween;
+};
+game.delay._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(8);
+  if (v) game.delay._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.delay.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.delay.StorageView.prototype = Object.create(null);
+game.delay.StorageView.prototype.constructor = game.delay.StorageView;
+game.delay._view = game.delay.StorageView;
+game.delay.StorageView._isSharedComp = game.delay._isSharedComp = false;
+game.delay.StorageView._fromPtr = game.delay._fromPtr;
+game.delay.StorageView._toPtr = game.delay._toPtr;
+game.delay.StorageView._tempHeapPtr = game.delay._tempHeapPtr;
+game.delay.StorageView._size = game.delay._size;
+game.delay.StorageView.prototype.$advance = function() {
+  this._ptr += 8;
+};
+Object.defineProperties(game.delay.StorageView.prototype, {
+  timer: {
+    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
+  },
+  delayBetween: {
+    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
+  },
+});
+game.delay._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.delay is a POD type, so a JavaScript side copy constructor game.delay._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+Object.defineProperties(game.delay, { cid: { configurable: true, get: function() { delete game.delay.cid; var offsetsPtr = 0, offsetsCount = 0; return game.delay.cid = Module._ut_component_register_cid(/*game.delay*/ 8, 4, 0, offsetsPtr, offsetsCount, 0/*"game::delay"*/, 0, 0); } } });
+Object.defineProperties(game.delay.StorageView, { cid: { configurable: true, get: function() { return game.delay.cid; } } });
+game.delay.timer = { $ofs:0, $t:"float", $c:game.delay };
+game.delay.delayBetween = { $ofs:4, $t:"float", $c:game.delay };
+game.lastPosition = function(arg0) {
+  this._pos = new ut.Math.Vector3(); if ((arg0) !== undefined) { this._pos.copy(arg0); };
 };
 game.lastPosition.prototype = Object.create(null);
 game.lastPosition.prototype.constructor = game.lastPosition;
 Object.defineProperties(game.lastPosition.prototype, {
-  x: {
-    get: function() { return this._x; },
-    set: function(v) { this._x = (+(v===undefined ? 0 : v)); },
-  },
-  y: {
-    get: function() { return this._y; },
-    set: function(v) { this._y = (+(v===undefined ? 0 : v)); },
-  },
-  z: {
-    get: function() { return this._z; },
-    set: function(v) { this._z = (+(v===undefined ? 0 : v)); },
+  pos: {
+    get: function() { return this._pos; },
+    set: function(v) { this._pos.copy(v); },
   },
 });
-game.lastPosition._size = 24;
+game.lastPosition._size = 12;
 game.lastPosition._fromPtr = function(ptr, v) {
   v = v || Object.create(game.lastPosition.prototype);
-  v._x = HEAPF64[(ptr+0)>>3];
-  v._y = HEAPF64[(ptr+8)>>3];
-  v._z = HEAPF64[(ptr+16)>>3];
+  v._pos = ut._utils.vec3FromHeap(null, ptr+0);
   return v;
 };
 game.lastPosition._toPtr = function(ptr, v) {
-  HEAPF64[(ptr+0)>>3] = v.x;
-  HEAPF64[(ptr+8)>>3] = v.y;
-  HEAPF64[(ptr+16)>>3] = v.z;
+  ut._utils.vec3ToHeap(v.pos, ptr+0);
 };
 game.lastPosition._toTempHeapPtr = function(ptr, v) {
-  HEAPF64[(ptr+0)>>3] = v.x;
-  HEAPF64[(ptr+8)>>3] = v.y;
-  HEAPF64[(ptr+16)>>3] = v.z;
+  ut._utils.vec3ToHeap(v.pos, ptr+0);
 };
 game.lastPosition._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(24);
+  var ptr = ut.tempHeapPtrBufferZero(12);
   if (v) game.lastPosition._toTempHeapPtr(ptr, v);
   return ptr;
 };
@@ -292,440 +382,115 @@ game.lastPosition.StorageView._toPtr = game.lastPosition._toPtr;
 game.lastPosition.StorageView._tempHeapPtr = game.lastPosition._tempHeapPtr;
 game.lastPosition.StorageView._size = game.lastPosition._size;
 game.lastPosition.StorageView.prototype.$advance = function() {
-  this._ptr += 24;
+  this._ptr += 12;
 };
 Object.defineProperties(game.lastPosition.StorageView.prototype, {
-  x: {
-    get: function() { return HEAPF64[(this._ptr+0)>>3]; },
-    set: function(v) { HEAPF64[(this._ptr+0)>>3] = v; },
-  },
-  y: {
-    get: function() { return HEAPF64[(this._ptr+8)>>3]; },
-    set: function(v) { HEAPF64[(this._ptr+8)>>3] = v; },
-  },
-  z: {
-    get: function() { return HEAPF64[(this._ptr+16)>>3]; },
-    set: function(v) { HEAPF64[(this._ptr+16)>>3] = v; },
+  pos: {
+    get: function() { return ut._utils.vec3FromHeap(null, this._ptr+0); },
+    set: function(v) { if (typeof(v) !== 'object') { throw new Error('expected an object'); } ut._utils.vec3ToHeap(v, this._ptr+0); },
   },
 });
 game.lastPosition._dtorFn = function dtor(ptr) { /* POD, no-op */ }
 // game.lastPosition is a POD type, so a JavaScript side copy constructor game.lastPosition._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.lastPosition, { cid: { configurable: true, get: function() { delete game.lastPosition.cid; var offsetsPtr = 0, offsetsCount = 0; return game.lastPosition.cid = Module._ut_component_register_cid(/*game.lastPosition*/ 24, 8, 0, offsetsPtr, offsetsCount, 0/*"game::lastPosition"*/, 0, 0); } } });
+Object.defineProperties(game.lastPosition, { cid: { configurable: true, get: function() { delete game.lastPosition.cid; var offsetsPtr = 0, offsetsCount = 0; return game.lastPosition.cid = Module._ut_component_register_cid(/*game.lastPosition*/ 12, 4, 0, offsetsPtr, offsetsCount, 0/*"game::lastPosition"*/, 0, 0); } } });
 Object.defineProperties(game.lastPosition.StorageView, { cid: { configurable: true, get: function() { return game.lastPosition.cid; } } });
-game.lastPosition.x = { $ofs:0, $t:"double", $c:game.lastPosition };
-game.lastPosition.y = { $ofs:8, $t:"double", $c:game.lastPosition };
-game.lastPosition.z = { $ofs:16, $t:"double", $c:game.lastPosition };
-game.Limits = function(arg0, arg1) {
-  this._minY = (+(arg0===undefined ? 0 : arg0));
-  this._maxY = (+(arg1===undefined ? 0 : arg1));
+game.lastPosition.pos = { $ofs:0, $t:"ut.Math.Vector3", $c:game.lastPosition };
+game.lastPosition.pos.z = { $ofs:8, $t:"float", $c:game.lastPosition };
+game.lastPosition.pos.y = { $ofs:4, $t:"float", $c:game.lastPosition };
+game.lastPosition.pos.x = { $ofs:0, $t:"float", $c:game.lastPosition };
+game.palmPivot = function() {
 };
-game.Limits.prototype = Object.create(null);
-game.Limits.prototype.constructor = game.Limits;
-Object.defineProperties(game.Limits.prototype, {
-  minY: {
-    get: function() { return this._minY; },
-    set: function(v) { this._minY = (+(v===undefined ? 0 : v)); },
-  },
-  maxY: {
-    get: function() { return this._maxY; },
-    set: function(v) { this._maxY = (+(v===undefined ? 0 : v)); },
-  },
+game.palmPivot.prototype = Object.create(null);
+game.palmPivot.prototype.constructor = game.palmPivot;
+Object.defineProperties(game.palmPivot.prototype, {
 });
-game.Limits._size = 8;
-game.Limits._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.Limits.prototype);
-  v._minY = HEAPF32[(ptr+0)>>2];
-  v._maxY = HEAPF32[(ptr+4)>>2];
+game.palmPivot._size = 1;
+game.palmPivot._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.palmPivot.prototype);
   return v;
 };
-game.Limits._toPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.minY;
-  HEAPF32[(ptr+4)>>2] = v.maxY;
+game.palmPivot._toPtr = function(ptr, v) {
 };
-game.Limits._toTempHeapPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.minY;
-  HEAPF32[(ptr+4)>>2] = v.maxY;
+game.palmPivot._toTempHeapPtr = function(ptr, v) {
 };
-game.Limits._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(8);
-  if (v) game.Limits._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.Limits.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.Limits.StorageView.prototype = Object.create(null);
-game.Limits.StorageView.prototype.constructor = game.Limits.StorageView;
-game.Limits._view = game.Limits.StorageView;
-game.Limits.StorageView._isSharedComp = game.Limits._isSharedComp = false;
-game.Limits.StorageView._fromPtr = game.Limits._fromPtr;
-game.Limits.StorageView._toPtr = game.Limits._toPtr;
-game.Limits.StorageView._tempHeapPtr = game.Limits._tempHeapPtr;
-game.Limits.StorageView._size = game.Limits._size;
-game.Limits.StorageView.prototype.$advance = function() {
-  this._ptr += 8;
-};
-Object.defineProperties(game.Limits.StorageView.prototype, {
-  minY: {
-    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
-  },
-  maxY: {
-    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
-  },
-});
-game.Limits._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.Limits is a POD type, so a JavaScript side copy constructor game.Limits._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.Limits, { cid: { configurable: true, get: function() { delete game.Limits.cid; var offsetsPtr = 0, offsetsCount = 0; return game.Limits.cid = Module._ut_component_register_cid(/*game.Limits*/ 8, 4, 0, offsetsPtr, offsetsCount, 0/*"game::Limits"*/, 0, 0); } } });
-Object.defineProperties(game.Limits.StorageView, { cid: { configurable: true, get: function() { return game.Limits.cid; } } });
-game.Limits.minY = { $ofs:0, $t:"float", $c:game.Limits };
-game.Limits.maxY = { $ofs:4, $t:"float", $c:game.Limits };
-game.MousePressed = function(arg0, arg1) {
-  this._mousePressed = (arg0 ? true : false);
-  this._actualHandId = (arg1|0);
-};
-game.MousePressed.prototype = Object.create(null);
-game.MousePressed.prototype.constructor = game.MousePressed;
-Object.defineProperties(game.MousePressed.prototype, {
-  mousePressed: {
-    get: function() { return this._mousePressed; },
-    set: function(v) { this._mousePressed = (v ? true : false); },
-  },
-  actualHandId: {
-    get: function() { return this._actualHandId; },
-    set: function(v) { this._actualHandId = (v|0); },
-  },
-});
-game.MousePressed._size = 8;
-game.MousePressed._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.MousePressed.prototype);
-  v._mousePressed = (HEAP8[ptr+0]?true:false);
-  v._actualHandId = HEAP32[(ptr+4)>>2];
-  return v;
-};
-game.MousePressed._toPtr = function(ptr, v) {
-  HEAP8[ptr+0] = (v.mousePressed)?1:0;
-  HEAP32[(ptr+4)>>2] = v.actualHandId;
-};
-game.MousePressed._toTempHeapPtr = function(ptr, v) {
-  HEAP8[ptr+0] = (v.mousePressed)?1:0;
-  HEAP32[(ptr+4)>>2] = v.actualHandId;
-};
-game.MousePressed._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(8);
-  if (v) game.MousePressed._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.MousePressed.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.MousePressed.StorageView.prototype = Object.create(null);
-game.MousePressed.StorageView.prototype.constructor = game.MousePressed.StorageView;
-game.MousePressed._view = game.MousePressed.StorageView;
-game.MousePressed.StorageView._isSharedComp = game.MousePressed._isSharedComp = false;
-game.MousePressed.StorageView._fromPtr = game.MousePressed._fromPtr;
-game.MousePressed.StorageView._toPtr = game.MousePressed._toPtr;
-game.MousePressed.StorageView._tempHeapPtr = game.MousePressed._tempHeapPtr;
-game.MousePressed.StorageView._size = game.MousePressed._size;
-game.MousePressed.StorageView.prototype.$advance = function() {
-  this._ptr += 8;
-};
-Object.defineProperties(game.MousePressed.StorageView.prototype, {
-  mousePressed: {
-    get: function() { return (HEAP8[this._ptr+0]?true:false); },
-    set: function(v) { HEAP8[this._ptr+0] = (v)?1:0; },
-  },
-  actualHandId: {
-    get: function() { return HEAP32[(this._ptr+4)>>2]; },
-    set: function(v) { HEAP32[(this._ptr+4)>>2] = v; },
-  },
-});
-game.MousePressed._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.MousePressed is a POD type, so a JavaScript side copy constructor game.MousePressed._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.MousePressed, { cid: { configurable: true, get: function() { delete game.MousePressed.cid; var offsetsPtr = 0, offsetsCount = 0; return game.MousePressed.cid = Module._ut_component_register_cid(/*game.MousePressed*/ 8, 4, 0, offsetsPtr, offsetsCount, 0/*"game::MousePressed"*/, 0, 0); } } });
-Object.defineProperties(game.MousePressed.StorageView, { cid: { configurable: true, get: function() { return game.MousePressed.cid; } } });
-game.MousePressed.mousePressed = { $ofs:0, $t:"bool", $c:game.MousePressed };
-game.MousePressed.actualHandId = { $ofs:4, $t:"int32_t", $c:game.MousePressed };
-game.Movement = function() {
-};
-game.Movement.prototype = Object.create(null);
-game.Movement.prototype.constructor = game.Movement;
-Object.defineProperties(game.Movement.prototype, {
-});
-game.Movement._size = 1;
-game.Movement._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.Movement.prototype);
-  return v;
-};
-game.Movement._toPtr = function(ptr, v) {
-};
-game.Movement._toTempHeapPtr = function(ptr, v) {
-};
-game.Movement._tempHeapPtr = function(v) {
+game.palmPivot._tempHeapPtr = function(v) {
   var ptr = ut.tempHeapPtrBufferZero(1);
-  if (v) game.Movement._toTempHeapPtr(ptr, v);
+  if (v) game.palmPivot._toTempHeapPtr(ptr, v);
   return ptr;
 };
-game.Movement.StorageView = function(ptr) {
+game.palmPivot.StorageView = function(ptr) {
   this._ptr = ptr;
 };
-game.Movement.StorageView.prototype = Object.create(null);
-game.Movement.StorageView.prototype.constructor = game.Movement.StorageView;
-game.Movement._view = game.Movement.StorageView;
-game.Movement.StorageView._isSharedComp = game.Movement._isSharedComp = false;
-game.Movement.StorageView._fromPtr = game.Movement._fromPtr;
-game.Movement.StorageView._toPtr = game.Movement._toPtr;
-game.Movement.StorageView._tempHeapPtr = game.Movement._tempHeapPtr;
-game.Movement.StorageView._size = game.Movement._size;
-game.Movement.StorageView.prototype.$advance = function() {
+game.palmPivot.StorageView.prototype = Object.create(null);
+game.palmPivot.StorageView.prototype.constructor = game.palmPivot.StorageView;
+game.palmPivot._view = game.palmPivot.StorageView;
+game.palmPivot.StorageView._isSharedComp = game.palmPivot._isSharedComp = false;
+game.palmPivot.StorageView._fromPtr = game.palmPivot._fromPtr;
+game.palmPivot.StorageView._toPtr = game.palmPivot._toPtr;
+game.palmPivot.StorageView._tempHeapPtr = game.palmPivot._tempHeapPtr;
+game.palmPivot.StorageView._size = game.palmPivot._size;
+game.palmPivot.StorageView.prototype.$advance = function() {
   this._ptr += 1;
 };
-Object.defineProperties(game.Movement.StorageView.prototype, {
+Object.defineProperties(game.palmPivot.StorageView.prototype, {
 });
-game.Movement._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.Movement is a POD type, so a JavaScript side copy constructor game.Movement._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.Movement, { cid: { configurable: true, get: function() { delete game.Movement.cid; var offsetsPtr = 0, offsetsCount = 0; return game.Movement.cid = Module._ut_component_register_cid(/*game.Movement*/ 1, 0, 0, offsetsPtr, offsetsCount, 0/*"game::Movement"*/, 0, 0); } } });
-Object.defineProperties(game.Movement.StorageView, { cid: { configurable: true, get: function() { return game.Movement.cid; } } });
-game.PalmPivot = function(arg0, arg1, arg2, arg3) {
-  this._x = (+(arg0===undefined ? 0 : arg0));
-  this._y = (+(arg1===undefined ? 0 : arg1));
-  this._z = (+(arg2===undefined ? 0 : arg2));
-  this._entity = (arg3 === undefined ? new ut.Entity : arg3);
+game.palmPivot._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.palmPivot is a POD type, so a JavaScript side copy constructor game.palmPivot._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+Object.defineProperties(game.palmPivot, { cid: { configurable: true, get: function() { delete game.palmPivot.cid; var offsetsPtr = 0, offsetsCount = 0; return game.palmPivot.cid = Module._ut_component_register_cid(/*game.palmPivot*/ 1, 0, 0, offsetsPtr, offsetsCount, 0/*"game::palmPivot"*/, 0, 0); } } });
+Object.defineProperties(game.palmPivot.StorageView, { cid: { configurable: true, get: function() { return game.palmPivot.cid; } } });
+game.speed = function(arg0) {
+  this._actualSpeed = (+(arg0===undefined ? 0 : arg0));
 };
-game.PalmPivot.prototype = Object.create(null);
-game.PalmPivot.prototype.constructor = game.PalmPivot;
-Object.defineProperties(game.PalmPivot.prototype, {
-  x: {
-    get: function() { return this._x; },
-    set: function(v) { this._x = (+(v===undefined ? 0 : v)); },
-  },
-  y: {
-    get: function() { return this._y; },
-    set: function(v) { this._y = (+(v===undefined ? 0 : v)); },
-  },
-  z: {
-    get: function() { return this._z; },
-    set: function(v) { this._z = (+(v===undefined ? 0 : v)); },
-  },
-  entity: {
-    get: function() { return this._entity; },
-    set: function(v) { this._entity = (v === undefined ? new ut.Entity : v); },
+game.speed.prototype = Object.create(null);
+game.speed.prototype.constructor = game.speed;
+Object.defineProperties(game.speed.prototype, {
+  actualSpeed: {
+    get: function() { return this._actualSpeed; },
+    set: function(v) { this._actualSpeed = (+(v===undefined ? 0 : v)); },
   },
 });
-game.PalmPivot._size = 20;
-game.PalmPivot._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.PalmPivot.prototype);
-  v._x = HEAPF32[(ptr+0)>>2];
-  v._y = HEAPF32[(ptr+4)>>2];
-  v._z = HEAPF32[(ptr+8)>>2];
-  v._entity = ut.Entity._fromPtr(ptr+12);
+game.speed._size = 4;
+game.speed._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.speed.prototype);
+  v._actualSpeed = HEAPF32[(ptr+0)>>2];
   return v;
 };
-game.PalmPivot._toPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.x;
-  HEAPF32[(ptr+4)>>2] = v.y;
-  HEAPF32[(ptr+8)>>2] = v.z;
-  ut.Entity._toPtr(ptr+12, v.entity);
+game.speed._toPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.actualSpeed;
 };
-game.PalmPivot._toTempHeapPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.x;
-  HEAPF32[(ptr+4)>>2] = v.y;
-  HEAPF32[(ptr+8)>>2] = v.z;
-  ut.Entity._toPtr(ptr+12, v.entity);
+game.speed._toTempHeapPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.actualSpeed;
 };
-game.PalmPivot._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(20);
-  if (v) game.PalmPivot._toTempHeapPtr(ptr, v);
+game.speed._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(4);
+  if (v) game.speed._toTempHeapPtr(ptr, v);
   return ptr;
 };
-game.PalmPivot.StorageView = function(ptr) {
+game.speed.StorageView = function(ptr) {
   this._ptr = ptr;
 };
-game.PalmPivot.StorageView.prototype = Object.create(null);
-game.PalmPivot.StorageView.prototype.constructor = game.PalmPivot.StorageView;
-game.PalmPivot._view = game.PalmPivot.StorageView;
-game.PalmPivot.StorageView._isSharedComp = game.PalmPivot._isSharedComp = false;
-game.PalmPivot.StorageView._fromPtr = game.PalmPivot._fromPtr;
-game.PalmPivot.StorageView._toPtr = game.PalmPivot._toPtr;
-game.PalmPivot.StorageView._tempHeapPtr = game.PalmPivot._tempHeapPtr;
-game.PalmPivot.StorageView._size = game.PalmPivot._size;
-game.PalmPivot.StorageView.prototype.$advance = function() {
-  this._ptr += 20;
+game.speed.StorageView.prototype = Object.create(null);
+game.speed.StorageView.prototype.constructor = game.speed.StorageView;
+game.speed._view = game.speed.StorageView;
+game.speed.StorageView._isSharedComp = game.speed._isSharedComp = false;
+game.speed.StorageView._fromPtr = game.speed._fromPtr;
+game.speed.StorageView._toPtr = game.speed._toPtr;
+game.speed.StorageView._tempHeapPtr = game.speed._tempHeapPtr;
+game.speed.StorageView._size = game.speed._size;
+game.speed.StorageView.prototype.$advance = function() {
+  this._ptr += 4;
 };
-Object.defineProperties(game.PalmPivot.StorageView.prototype, {
-  x: {
+Object.defineProperties(game.speed.StorageView.prototype, {
+  actualSpeed: {
     get: function() { return HEAPF32[(this._ptr+0)>>2]; },
     set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
   },
-  y: {
-    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
-  },
-  z: {
-    get: function() { return HEAPF32[(this._ptr+8)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+8)>>2] = v; },
-  },
-  entity: {
-    get: function() { return ut.Entity._fromPtr(this._ptr+12); },
-    set: function(v) { if (typeof(v) !== 'object') { throw new Error('expected an object'); } ut.Entity._toPtr(this._ptr+12, v); },
-  },
 });
-game.PalmPivot._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.PalmPivot is a POD type, so a JavaScript side copy constructor game.PalmPivot._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.PalmPivot, { cid: { configurable: true, get: function() { delete game.PalmPivot.cid; var offsetsPtr = ut.tempHeapPtrI32([12]); var offsetsCount = 1; return game.PalmPivot.cid = Module._ut_component_register_cid(/*game.PalmPivot*/ 20, 4, 0, offsetsPtr, offsetsCount, 0/*"game::PalmPivot"*/, 0, 0); } } });
-Object.defineProperties(game.PalmPivot.StorageView, { cid: { configurable: true, get: function() { return game.PalmPivot.cid; } } });
-game.PalmPivot.x = { $ofs:0, $t:"float", $c:game.PalmPivot };
-game.PalmPivot.y = { $ofs:4, $t:"float", $c:game.PalmPivot };
-game.PalmPivot.z = { $ofs:8, $t:"float", $c:game.PalmPivot };
-game.PalmPivot.entity = { $ofs:12, $t:"ut.Entity", $c:game.PalmPivot };
-game.PalmPivot.entity.index = { $ofs:12, $t:"int32_t", $c:game.PalmPivot };
-game.PalmPivot.entity.version = { $ofs:16, $t:"int32_t", $c:game.PalmPivot };
-game.Scales = function(arg0, arg1) {
-  this._actualScale = (+(arg0===undefined ? 0 : arg0));
-  this._rescalePerTick = (+(arg1===undefined ? 0 : arg1));
-};
-game.Scales.prototype = Object.create(null);
-game.Scales.prototype.constructor = game.Scales;
-Object.defineProperties(game.Scales.prototype, {
-  actualScale: {
-    get: function() { return this._actualScale; },
-    set: function(v) { this._actualScale = (+(v===undefined ? 0 : v)); },
-  },
-  rescalePerTick: {
-    get: function() { return this._rescalePerTick; },
-    set: function(v) { this._rescalePerTick = (+(v===undefined ? 0 : v)); },
-  },
-});
-game.Scales._size = 16;
-game.Scales._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.Scales.prototype);
-  v._actualScale = HEAPF32[(ptr+0)>>2];
-  v._rescalePerTick = HEAPF64[(ptr+8)>>3];
-  return v;
-};
-game.Scales._toPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.actualScale;
-  HEAPF64[(ptr+8)>>3] = v.rescalePerTick;
-};
-game.Scales._toTempHeapPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.actualScale;
-  HEAPF64[(ptr+8)>>3] = v.rescalePerTick;
-};
-game.Scales._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(16);
-  if (v) game.Scales._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.Scales.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.Scales.StorageView.prototype = Object.create(null);
-game.Scales.StorageView.prototype.constructor = game.Scales.StorageView;
-game.Scales._view = game.Scales.StorageView;
-game.Scales.StorageView._isSharedComp = game.Scales._isSharedComp = false;
-game.Scales.StorageView._fromPtr = game.Scales._fromPtr;
-game.Scales.StorageView._toPtr = game.Scales._toPtr;
-game.Scales.StorageView._tempHeapPtr = game.Scales._tempHeapPtr;
-game.Scales.StorageView._size = game.Scales._size;
-game.Scales.StorageView.prototype.$advance = function() {
-  this._ptr += 16;
-};
-Object.defineProperties(game.Scales.StorageView.prototype, {
-  actualScale: {
-    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
-  },
-  rescalePerTick: {
-    get: function() { return HEAPF64[(this._ptr+8)>>3]; },
-    set: function(v) { HEAPF64[(this._ptr+8)>>3] = v; },
-  },
-});
-game.Scales._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.Scales is a POD type, so a JavaScript side copy constructor game.Scales._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.Scales, { cid: { configurable: true, get: function() { delete game.Scales.cid; var offsetsPtr = 0, offsetsCount = 0; return game.Scales.cid = Module._ut_component_register_cid(/*game.Scales*/ 16, 8, 0, offsetsPtr, offsetsCount, 0/*"game::Scales"*/, 0, 0); } } });
-Object.defineProperties(game.Scales.StorageView, { cid: { configurable: true, get: function() { return game.Scales.cid; } } });
-game.Scales.actualScale = { $ofs:0, $t:"float", $c:game.Scales };
-game.Scales.rescalePerTick = { $ofs:8, $t:"double", $c:game.Scales };
-game.SpawnerTimers = function(arg0, arg1, arg2) {
-  this._delay = (+(arg0===undefined ? 0 : arg0));
-  this._time = (+(arg1===undefined ? 0 : arg1));
-  this._distance = (+(arg2===undefined ? 0 : arg2));
-};
-game.SpawnerTimers.prototype = Object.create(null);
-game.SpawnerTimers.prototype.constructor = game.SpawnerTimers;
-Object.defineProperties(game.SpawnerTimers.prototype, {
-  delay: {
-    get: function() { return this._delay; },
-    set: function(v) { this._delay = (+(v===undefined ? 0 : v)); },
-  },
-  time: {
-    get: function() { return this._time; },
-    set: function(v) { this._time = (+(v===undefined ? 0 : v)); },
-  },
-  distance: {
-    get: function() { return this._distance; },
-    set: function(v) { this._distance = (+(v===undefined ? 0 : v)); },
-  },
-});
-game.SpawnerTimers._size = 12;
-game.SpawnerTimers._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.SpawnerTimers.prototype);
-  v._delay = HEAPF32[(ptr+0)>>2];
-  v._time = HEAPF32[(ptr+4)>>2];
-  v._distance = HEAPF32[(ptr+8)>>2];
-  return v;
-};
-game.SpawnerTimers._toPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.delay;
-  HEAPF32[(ptr+4)>>2] = v.time;
-  HEAPF32[(ptr+8)>>2] = v.distance;
-};
-game.SpawnerTimers._toTempHeapPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.delay;
-  HEAPF32[(ptr+4)>>2] = v.time;
-  HEAPF32[(ptr+8)>>2] = v.distance;
-};
-game.SpawnerTimers._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(12);
-  if (v) game.SpawnerTimers._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.SpawnerTimers.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.SpawnerTimers.StorageView.prototype = Object.create(null);
-game.SpawnerTimers.StorageView.prototype.constructor = game.SpawnerTimers.StorageView;
-game.SpawnerTimers._view = game.SpawnerTimers.StorageView;
-game.SpawnerTimers.StorageView._isSharedComp = game.SpawnerTimers._isSharedComp = false;
-game.SpawnerTimers.StorageView._fromPtr = game.SpawnerTimers._fromPtr;
-game.SpawnerTimers.StorageView._toPtr = game.SpawnerTimers._toPtr;
-game.SpawnerTimers.StorageView._tempHeapPtr = game.SpawnerTimers._tempHeapPtr;
-game.SpawnerTimers.StorageView._size = game.SpawnerTimers._size;
-game.SpawnerTimers.StorageView.prototype.$advance = function() {
-  this._ptr += 12;
-};
-Object.defineProperties(game.SpawnerTimers.StorageView.prototype, {
-  delay: {
-    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
-  },
-  time: {
-    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
-  },
-  distance: {
-    get: function() { return HEAPF32[(this._ptr+8)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+8)>>2] = v; },
-  },
-});
-game.SpawnerTimers._dtorFn = function dtor(ptr) { /* POD, no-op */ }
-// game.SpawnerTimers is a POD type, so a JavaScript side copy constructor game.SpawnerTimers._copyFn = function copy(src, dst) { ... } does not need to be generated for it
-Object.defineProperties(game.SpawnerTimers, { cid: { configurable: true, get: function() { delete game.SpawnerTimers.cid; var offsetsPtr = 0, offsetsCount = 0; return game.SpawnerTimers.cid = Module._ut_component_register_cid(/*game.SpawnerTimers*/ 12, 4, 0, offsetsPtr, offsetsCount, 0/*"game::SpawnerTimers"*/, 0, 0); } } });
-Object.defineProperties(game.SpawnerTimers.StorageView, { cid: { configurable: true, get: function() { return game.SpawnerTimers.cid; } } });
-game.SpawnerTimers.delay = { $ofs:0, $t:"float", $c:game.SpawnerTimers };
-game.SpawnerTimers.time = { $ofs:4, $t:"float", $c:game.SpawnerTimers };
-game.SpawnerTimers.distance = { $ofs:8, $t:"float", $c:game.SpawnerTimers };
+game.speed._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.speed is a POD type, so a JavaScript side copy constructor game.speed._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+Object.defineProperties(game.speed, { cid: { configurable: true, get: function() { delete game.speed.cid; var offsetsPtr = 0, offsetsCount = 0; return game.speed.cid = Module._ut_component_register_cid(/*game.speed*/ 4, 4, 0, offsetsPtr, offsetsCount, 0/*"game::speed"*/, 0, 0); } } });
+Object.defineProperties(game.speed.StorageView, { cid: { configurable: true, get: function() { return game.speed.cid; } } });
+game.speed.actualSpeed = { $ofs:0, $t:"float", $c:game.speed };
 var ut = ut || {};
 ut.Core2D = ut.Core2D || {};
 ut.Core2D.layers = ut.Core2D.layers || {};
@@ -1810,9 +1575,8 @@ game.HandBehavior_State.initialized = { $ofs:0, $t:"bool", $c:game.HandBehavior_
 game.HandBehavior_State.enabled = { $ofs:1, $t:"bool", $c:game.HandBehavior_State };
 game.HandBehavior_State.onEnableCalled = { $ofs:2, $t:"bool", $c:game.HandBehavior_State };
 game.HandBehavior_State.onDisableCalled = { $ofs:3, $t:"bool", $c:game.HandBehavior_State };
-game.CamMovementJS = ut.System.define({
-  name: "game.CamMovementJS"
- ,updatesAfter: ["UTiny.Shared.InputFence"]
+game.BackgroundJS = ut.System.define({
+  name: "game.BackgroundJS"
 });
 game.HandBehavior_OnEntityEnableJS = ut.System.define({
   name: "game.HandBehavior_OnEntityEnableJS"
@@ -2755,10 +2519,10 @@ entities.game.Hands.load = function(world) {
 
 entities.game.MainGroup.name = "MainGroup";
 entities.game.MainGroup.load = function(world) {
-    var arch0 = world.createArchetype(game.lastPosition, game.Limits, game.MousePressed, game.Movement, game.Scales, game.SpawnerTimers, this.Component, ut.Core2D.Camera2D, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformNode, ut.EditorExtensions.CameraCullingMask, ut.layers.Default)
+    var arch0 = world.createArchetype(this.Component, ut.Core2D.Camera2D, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.EditorExtensions.CameraCullingMask, ut.layers.Default)
     var e0 = world.createEntity(arch0);
     world.setEntityName(e0, "Camera");
-    var arch1 = world.createArchetype(this.Component, ut.Core2D.TransformNode, ut.layers.Default)
+    var arch1 = world.createArchetype(game.background, game.delay, game.lastPosition, game.speed, this.Component, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
     var e1 = world.createEntity(arch1);
     world.setEntityName(e1, "Background");
     var arch2 = world.createArchetype(this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
@@ -2801,314 +2565,350 @@ entities.game.MainGroup.load = function(world) {
     world.setComponentData(e0, c1);
     var c2 = new ut.Core2D.TransformLocalPosition();
     var s2 = new ut.Math.Vector3();
-    s2.x = 26.37;
+    s2.x = 0;
     s2.y = 0;
     s2.z = 0;
     c2.position = s2;
     world.setComponentData(e0, c2);
-    var c3 = new game.Scales();
-    c3.actualScale = 0.3;
-    c3.rescalePerTick = 0.1;
-    world.setComponentData(e0, c3);
-    var c4 = new game.MousePressed();
-    world.setComponentData(e0, c4);
-    var c5 = new game.SpawnerTimers();
-    c5.delay = 0.05;
-    c5.distance = 6.25;
-    world.setComponentData(e0, c5);
-    var c6 = new game.lastPosition();
-    c6.x = 26.37;
-    world.setComponentData(e0, c6);
-    var c7 = new game.Limits();
-    world.setComponentData(e0, c7);
-    var c8 = new ut.Core2D.TransformNode();
-    world.setComponentData(e1, c8);
-    var c9 = new ut.Core2D.TransformNode();
-    c9.parent = e1;
-    world.setComponentData(e2, c9);
-    var c10 = new ut.Core2D.TransformLocalPosition();
-    var s3 = new ut.Math.Vector3();
-    s3.x = 47.5494;
+    var c3 = new ut.Core2D.TransformLocalRotation();
+    var s3 = new ut.Math.Quaternion();
+    s3.x = 0;
     s3.y = 0;
     s3.z = 0;
-    c10.position = s3;
-    world.setComponentData(e2, c10);
-    var c11 = new ut.Core2D.TransformLocalRotation();
-    var s4 = new ut.Math.Quaternion();
-    s4.x = 0;
-    s4.y = 0;
-    s4.z = 0;
-    s4.w = 1;
-    c11.rotation = s4;
-    world.setComponentData(e2, c11);
-    var c12 = new ut.Core2D.TransformLocalScale();
+    s3.w = 1;
+    c3.rotation = s3;
+    world.setComponentData(e0, c3);
+    var c4 = new ut.Core2D.TransformLocalScale();
+    var s4 = new ut.Math.Vector3();
+    s4.x = 1;
+    s4.y = 1;
+    s4.z = 1;
+    c4.scale = s4;
+    world.setComponentData(e0, c4);
+    var c5 = new ut.Core2D.TransformNode();
+    world.setComponentData(e1, c5);
+    var c6 = new ut.Core2D.TransformLocalPosition();
     var s5 = new ut.Math.Vector3();
-    s5.x = 1;
-    s5.y = 1;
-    s5.z = 1;
-    c12.scale = s5;
-    world.setComponentData(e2, c12);
-    var c13 = new ut.Core2D.Sprite2DRenderer();
-    c13.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG1');
-    var s6 = new ut.Core2D.Color();
-    s6.r = 1;
-    s6.g = 1;
-    s6.b = 1;
-    s6.a = 1;
-    c13.color = s6;
-    c13.blending = 0;
-    world.setComponentData(e2, c13);
-    var c14 = new ut.Core2D.TransformNode();
-    c14.parent = e1;
-    world.setComponentData(e3, c14);
-    var c15 = new ut.Core2D.TransformLocalPosition();
+    s5.x = 0;
+    s5.y = 0;
+    s5.z = 0;
+    c6.position = s5;
+    world.setComponentData(e1, c6);
+    var c7 = new ut.Core2D.TransformLocalRotation();
+    var s6 = new ut.Math.Quaternion();
+    s6.x = 0;
+    s6.y = 0;
+    s6.z = 0;
+    s6.w = 1;
+    c7.rotation = s6;
+    world.setComponentData(e1, c7);
+    var c8 = new ut.Core2D.TransformLocalScale();
     var s7 = new ut.Math.Vector3();
-    s7.x = 77.5494;
-    s7.y = 0;
-    s7.z = 0;
-    c15.position = s7;
-    world.setComponentData(e3, c15);
-    var c16 = new ut.Core2D.TransformLocalRotation();
-    var s8 = new ut.Math.Quaternion();
+    s7.x = 1;
+    s7.y = 1;
+    s7.z = 1;
+    c8.scale = s7;
+    world.setComponentData(e1, c8);
+    var c9 = new game.speed();
+    c9.actualSpeed = 3;
+    world.setComponentData(e1, c9);
+    var c10 = new game.lastPosition();
+    var s8 = new ut.Math.Vector3();
     s8.x = 0;
     s8.y = 0;
     s8.z = 0;
-    s8.w = 1;
-    c16.rotation = s8;
-    world.setComponentData(e3, c16);
-    var c17 = new ut.Core2D.TransformLocalScale();
+    c10.pos = s8;
+    world.setComponentData(e1, c10);
+    var c11 = new game.delay();
+    c11.timer = 1.5;
+    c11.delayBetween = 0.5;
+    world.setComponentData(e1, c11);
+    var c12 = new ut.Core2D.TransformNode();
+    c12.parent = e1;
+    world.setComponentData(e2, c12);
+    var c13 = new ut.Core2D.TransformLocalPosition();
     var s9 = new ut.Math.Vector3();
-    s9.x = 1;
-    s9.y = 1;
-    s9.z = 1;
-    c17.scale = s9;
-    world.setComponentData(e3, c17);
-    var c18 = new ut.Core2D.Sprite2DRenderer();
-    c18.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG2');
-    var s10 = new ut.Core2D.Color();
-    s10.r = 1;
-    s10.g = 1;
-    s10.b = 1;
-    s10.a = 1;
-    c18.color = s10;
-    c18.blending = 0;
-    world.setComponentData(e3, c18);
-    var c19 = new ut.Core2D.TransformNode();
-    c19.parent = e1;
-    world.setComponentData(e4, c19);
-    var c20 = new ut.Core2D.TransformLocalPosition();
+    s9.x = 47.5494;
+    s9.y = 0;
+    s9.z = 0;
+    c13.position = s9;
+    world.setComponentData(e2, c13);
+    var c14 = new ut.Core2D.TransformLocalRotation();
+    var s10 = new ut.Math.Quaternion();
+    s10.x = 0;
+    s10.y = 0;
+    s10.z = 0;
+    s10.w = 1;
+    c14.rotation = s10;
+    world.setComponentData(e2, c14);
+    var c15 = new ut.Core2D.TransformLocalScale();
     var s11 = new ut.Math.Vector3();
-    s11.x = 107.5494;
-    s11.y = 0;
-    s11.z = 0;
-    c20.position = s11;
-    world.setComponentData(e4, c20);
-    var c21 = new ut.Core2D.TransformLocalRotation();
-    var s12 = new ut.Math.Quaternion();
-    s12.x = 0;
-    s12.y = 0;
-    s12.z = 0;
-    s12.w = 1;
-    c21.rotation = s12;
-    world.setComponentData(e4, c21);
-    var c22 = new ut.Core2D.TransformLocalScale();
+    s11.x = 1;
+    s11.y = 1;
+    s11.z = 1;
+    c15.scale = s11;
+    world.setComponentData(e2, c15);
+    var c16 = new ut.Core2D.Sprite2DRenderer();
+    c16.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG1');
+    var s12 = new ut.Core2D.Color();
+    s12.r = 1;
+    s12.g = 1;
+    s12.b = 1;
+    s12.a = 1;
+    c16.color = s12;
+    c16.blending = 0;
+    world.setComponentData(e2, c16);
+    var c17 = new ut.Core2D.TransformNode();
+    c17.parent = e1;
+    world.setComponentData(e3, c17);
+    var c18 = new ut.Core2D.TransformLocalPosition();
     var s13 = new ut.Math.Vector3();
-    s13.x = 1;
-    s13.y = 1;
-    s13.z = 1;
-    c22.scale = s13;
-    world.setComponentData(e4, c22);
-    var c23 = new ut.Core2D.Sprite2DRenderer();
-    c23.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG3');
-    var s14 = new ut.Core2D.Color();
-    s14.r = 1;
-    s14.g = 1;
-    s14.b = 1;
-    s14.a = 1;
-    c23.color = s14;
-    c23.blending = 0;
-    world.setComponentData(e4, c23);
-    var c24 = new ut.Core2D.TransformNode();
-    c24.parent = e1;
-    world.setComponentData(e5, c24);
-    var c25 = new ut.Core2D.TransformLocalPosition();
+    s13.x = 77.5494;
+    s13.y = 0;
+    s13.z = 0;
+    c18.position = s13;
+    world.setComponentData(e3, c18);
+    var c19 = new ut.Core2D.TransformLocalRotation();
+    var s14 = new ut.Math.Quaternion();
+    s14.x = 0;
+    s14.y = 0;
+    s14.z = 0;
+    s14.w = 1;
+    c19.rotation = s14;
+    world.setComponentData(e3, c19);
+    var c20 = new ut.Core2D.TransformLocalScale();
     var s15 = new ut.Math.Vector3();
-    s15.x = 18.2;
-    s15.y = 0;
-    s15.z = 0;
-    c25.position = s15;
-    world.setComponentData(e5, c25);
-    var c26 = new ut.Core2D.TransformLocalRotation();
-    var s16 = new ut.Math.Quaternion();
-    s16.x = 0;
-    s16.y = 0;
-    s16.z = 0;
-    s16.w = 1;
-    c26.rotation = s16;
-    world.setComponentData(e5, c26);
-    var c27 = new ut.Core2D.TransformLocalScale();
+    s15.x = 1;
+    s15.y = 1;
+    s15.z = 1;
+    c20.scale = s15;
+    world.setComponentData(e3, c20);
+    var c21 = new ut.Core2D.Sprite2DRenderer();
+    c21.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG2');
+    var s16 = new ut.Core2D.Color();
+    s16.r = 1;
+    s16.g = 1;
+    s16.b = 1;
+    s16.a = 1;
+    c21.color = s16;
+    c21.blending = 0;
+    world.setComponentData(e3, c21);
+    var c22 = new ut.Core2D.TransformNode();
+    c22.parent = e1;
+    world.setComponentData(e4, c22);
+    var c23 = new ut.Core2D.TransformLocalPosition();
     var s17 = new ut.Math.Vector3();
-    s17.x = 1;
-    s17.y = 1;
-    s17.z = 1;
-    c27.scale = s17;
-    world.setComponentData(e5, c27);
-    var c28 = new ut.Core2D.Sprite2DRenderer();
-    c28.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG8');
-    var s18 = new ut.Core2D.Color();
-    s18.r = 1;
-    s18.g = 1;
-    s18.b = 1;
-    s18.a = 1;
-    c28.color = s18;
-    c28.blending = 0;
-    world.setComponentData(e5, c28);
-    var c29 = new ut.Core2D.TransformNode();
-    c29.parent = e1;
-    world.setComponentData(e6, c29);
-    var c30 = new ut.Core2D.TransformLocalPosition();
+    s17.x = 107.5494;
+    s17.y = 0;
+    s17.z = 0;
+    c23.position = s17;
+    world.setComponentData(e4, c23);
+    var c24 = new ut.Core2D.TransformLocalRotation();
+    var s18 = new ut.Math.Quaternion();
+    s18.x = 0;
+    s18.y = 0;
+    s18.z = 0;
+    s18.w = 1;
+    c24.rotation = s18;
+    world.setComponentData(e4, c24);
+    var c25 = new ut.Core2D.TransformLocalScale();
     var s19 = new ut.Math.Vector3();
-    s19.x = -11.14635;
-    s19.y = -1.5E-05;
-    s19.z = 0;
-    c30.position = s19;
-    world.setComponentData(e6, c30);
-    var c31 = new ut.Core2D.TransformLocalRotation();
-    var s20 = new ut.Math.Quaternion();
-    s20.x = 0;
-    s20.y = 0;
-    s20.z = 0;
-    s20.w = 1;
-    c31.rotation = s20;
-    world.setComponentData(e6, c31);
-    var c32 = new ut.Core2D.TransformLocalScale();
+    s19.x = 1;
+    s19.y = 1;
+    s19.z = 1;
+    c25.scale = s19;
+    world.setComponentData(e4, c25);
+    var c26 = new ut.Core2D.Sprite2DRenderer();
+    c26.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG3');
+    var s20 = new ut.Core2D.Color();
+    s20.r = 1;
+    s20.g = 1;
+    s20.b = 1;
+    s20.a = 1;
+    c26.color = s20;
+    c26.blending = 0;
+    world.setComponentData(e4, c26);
+    var c27 = new ut.Core2D.TransformNode();
+    c27.parent = e1;
+    world.setComponentData(e5, c27);
+    var c28 = new ut.Core2D.TransformLocalPosition();
     var s21 = new ut.Math.Vector3();
-    s21.x = 1;
-    s21.y = 1;
-    s21.z = 1;
-    c32.scale = s21;
-    world.setComponentData(e6, c32);
-    var c33 = new ut.Core2D.Sprite2DRenderer();
-    c33.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG7');
-    var s22 = new ut.Core2D.Color();
-    s22.r = 1;
-    s22.g = 1;
-    s22.b = 1;
-    s22.a = 1;
-    c33.color = s22;
-    c33.blending = 0;
-    world.setComponentData(e6, c33);
-    var c34 = new ut.Core2D.TransformNode();
-    c34.parent = e1;
-    world.setComponentData(e7, c34);
-    var c35 = new ut.Core2D.TransformLocalPosition();
+    s21.x = 18.2;
+    s21.y = 0;
+    s21.z = 0;
+    c28.position = s21;
+    world.setComponentData(e5, c28);
+    var c29 = new ut.Core2D.TransformLocalRotation();
+    var s22 = new ut.Math.Quaternion();
+    s22.x = 0;
+    s22.y = 0;
+    s22.z = 0;
+    s22.w = 1;
+    c29.rotation = s22;
+    world.setComponentData(e5, c29);
+    var c30 = new ut.Core2D.TransformLocalScale();
     var s23 = new ut.Math.Vector3();
-    s23.x = -41.14282;
-    s23.y = -0.0002;
-    s23.z = 0;
-    c35.position = s23;
-    world.setComponentData(e7, c35);
-    var c36 = new ut.Core2D.TransformLocalRotation();
-    var s24 = new ut.Math.Quaternion();
-    s24.x = 0;
-    s24.y = 0;
-    s24.z = 0;
-    s24.w = 1;
-    c36.rotation = s24;
-    world.setComponentData(e7, c36);
-    var c37 = new ut.Core2D.TransformLocalScale();
+    s23.x = 1;
+    s23.y = 1;
+    s23.z = 1;
+    c30.scale = s23;
+    world.setComponentData(e5, c30);
+    var c31 = new ut.Core2D.Sprite2DRenderer();
+    c31.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG8');
+    var s24 = new ut.Core2D.Color();
+    s24.r = 1;
+    s24.g = 1;
+    s24.b = 1;
+    s24.a = 1;
+    c31.color = s24;
+    c31.blending = 0;
+    world.setComponentData(e5, c31);
+    var c32 = new ut.Core2D.TransformNode();
+    c32.parent = e1;
+    world.setComponentData(e6, c32);
+    var c33 = new ut.Core2D.TransformLocalPosition();
     var s25 = new ut.Math.Vector3();
-    s25.x = 1;
-    s25.y = 1;
-    s25.z = 1;
-    c37.scale = s25;
-    world.setComponentData(e7, c37);
-    var c38 = new ut.Core2D.Sprite2DRenderer();
-    c38.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG6');
-    var s26 = new ut.Core2D.Color();
-    s26.r = 1;
-    s26.g = 1;
-    s26.b = 1;
-    s26.a = 1;
-    c38.color = s26;
-    c38.blending = 0;
-    world.setComponentData(e7, c38);
-    var c39 = new ut.Core2D.TransformNode();
-    c39.parent = e1;
-    world.setComponentData(e8, c39);
-    var c40 = new ut.Core2D.TransformLocalPosition();
+    s25.x = -11.14635;
+    s25.y = -1.5E-05;
+    s25.z = 0;
+    c33.position = s25;
+    world.setComponentData(e6, c33);
+    var c34 = new ut.Core2D.TransformLocalRotation();
+    var s26 = new ut.Math.Quaternion();
+    s26.x = 0;
+    s26.y = 0;
+    s26.z = 0;
+    s26.w = 1;
+    c34.rotation = s26;
+    world.setComponentData(e6, c34);
+    var c35 = new ut.Core2D.TransformLocalScale();
     var s27 = new ut.Math.Vector3();
-    s27.x = -71.123;
-    s27.y = 0;
-    s27.z = 0;
-    c40.position = s27;
-    world.setComponentData(e8, c40);
-    var c41 = new ut.Core2D.TransformLocalRotation();
-    var s28 = new ut.Math.Quaternion();
-    s28.x = 0;
-    s28.y = 0;
-    s28.z = 0;
-    s28.w = 1;
-    c41.rotation = s28;
-    world.setComponentData(e8, c41);
-    var c42 = new ut.Core2D.TransformLocalScale();
+    s27.x = 1;
+    s27.y = 1;
+    s27.z = 1;
+    c35.scale = s27;
+    world.setComponentData(e6, c35);
+    var c36 = new ut.Core2D.Sprite2DRenderer();
+    c36.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG7');
+    var s28 = new ut.Core2D.Color();
+    s28.r = 1;
+    s28.g = 1;
+    s28.b = 1;
+    s28.a = 1;
+    c36.color = s28;
+    c36.blending = 0;
+    world.setComponentData(e6, c36);
+    var c37 = new ut.Core2D.TransformNode();
+    c37.parent = e1;
+    world.setComponentData(e7, c37);
+    var c38 = new ut.Core2D.TransformLocalPosition();
     var s29 = new ut.Math.Vector3();
-    s29.x = 1;
-    s29.y = 1;
-    s29.z = 1;
-    c42.scale = s29;
-    world.setComponentData(e8, c42);
-    var c43 = new ut.Core2D.Sprite2DRenderer();
-    c43.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG5');
-    var s30 = new ut.Core2D.Color();
-    s30.r = 1;
-    s30.g = 1;
-    s30.b = 1;
-    s30.a = 1;
-    c43.color = s30;
-    c43.blending = 0;
-    world.setComponentData(e8, c43);
-    var c44 = new ut.Core2D.TransformNode();
-    c44.parent = e1;
-    world.setComponentData(e9, c44);
-    var c45 = new ut.Core2D.TransformLocalPosition();
+    s29.x = -41.14282;
+    s29.y = -0.0002;
+    s29.z = 0;
+    c38.position = s29;
+    world.setComponentData(e7, c38);
+    var c39 = new ut.Core2D.TransformLocalRotation();
+    var s30 = new ut.Math.Quaternion();
+    s30.x = 0;
+    s30.y = 0;
+    s30.z = 0;
+    s30.w = 1;
+    c39.rotation = s30;
+    world.setComponentData(e7, c39);
+    var c40 = new ut.Core2D.TransformLocalScale();
     var s31 = new ut.Math.Vector3();
-    s31.x = -101.1227;
-    s31.y = 0;
-    s31.z = 0;
-    c45.position = s31;
-    world.setComponentData(e9, c45);
-    var c46 = new ut.Core2D.TransformLocalRotation();
-    var s32 = new ut.Math.Quaternion();
-    s32.x = 0;
-    s32.y = 0;
-    s32.z = 0;
-    s32.w = 1;
-    c46.rotation = s32;
-    world.setComponentData(e9, c46);
-    var c47 = new ut.Core2D.TransformLocalScale();
+    s31.x = 1;
+    s31.y = 1;
+    s31.z = 1;
+    c40.scale = s31;
+    world.setComponentData(e7, c40);
+    var c41 = new ut.Core2D.Sprite2DRenderer();
+    c41.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG6');
+    var s32 = new ut.Core2D.Color();
+    s32.r = 1;
+    s32.g = 1;
+    s32.b = 1;
+    s32.a = 1;
+    c41.color = s32;
+    c41.blending = 0;
+    world.setComponentData(e7, c41);
+    var c42 = new ut.Core2D.TransformNode();
+    c42.parent = e1;
+    world.setComponentData(e8, c42);
+    var c43 = new ut.Core2D.TransformLocalPosition();
     var s33 = new ut.Math.Vector3();
-    s33.x = 1;
-    s33.y = 1;
-    s33.z = 1;
-    c47.scale = s33;
+    s33.x = -71.123;
+    s33.y = 0;
+    s33.z = 0;
+    c43.position = s33;
+    world.setComponentData(e8, c43);
+    var c44 = new ut.Core2D.TransformLocalRotation();
+    var s34 = new ut.Math.Quaternion();
+    s34.x = 0;
+    s34.y = 0;
+    s34.z = 0;
+    s34.w = 1;
+    c44.rotation = s34;
+    world.setComponentData(e8, c44);
+    var c45 = new ut.Core2D.TransformLocalScale();
+    var s35 = new ut.Math.Vector3();
+    s35.x = 1;
+    s35.y = 1;
+    s35.z = 1;
+    c45.scale = s35;
+    world.setComponentData(e8, c45);
+    var c46 = new ut.Core2D.Sprite2DRenderer();
+    c46.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG5');
+    var s36 = new ut.Core2D.Color();
+    s36.r = 1;
+    s36.g = 1;
+    s36.b = 1;
+    s36.a = 1;
+    c46.color = s36;
+    c46.blending = 0;
+    world.setComponentData(e8, c46);
+    var c47 = new ut.Core2D.TransformNode();
+    c47.parent = e1;
     world.setComponentData(e9, c47);
-    var c48 = new ut.Core2D.Sprite2DRenderer();
-    c48.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG4');
-    var s34 = new ut.Core2D.Color();
-    s34.r = 1;
-    s34.g = 1;
-    s34.b = 1;
-    s34.a = 1;
-    c48.color = s34;
-    c48.blending = 0;
+    var c48 = new ut.Core2D.TransformLocalPosition();
+    var s37 = new ut.Math.Vector3();
+    s37.x = -101.1227;
+    s37.y = 0;
+    s37.z = 0;
+    c48.position = s37;
     world.setComponentData(e9, c48);
+    var c49 = new ut.Core2D.TransformLocalRotation();
+    var s38 = new ut.Math.Quaternion();
+    s38.x = 0;
+    s38.y = 0;
+    s38.z = 0;
+    s38.w = 1;
+    c49.rotation = s38;
+    world.setComponentData(e9, c49);
+    var c50 = new ut.Core2D.TransformLocalScale();
+    var s39 = new ut.Math.Vector3();
+    s39.x = 1;
+    s39.y = 1;
+    s39.z = 1;
+    c50.scale = s39;
+    world.setComponentData(e9, c50);
+    var c51 = new ut.Core2D.Sprite2DRenderer();
+    c51.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/BG4');
+    var s40 = new ut.Core2D.Color();
+    s40.r = 1;
+    s40.g = 1;
+    s40.b = 1;
+    s40.a = 1;
+    c51.color = s40;
+    c51.blending = 0;
+    world.setComponentData(e9, c51);
     return [e0, e1, e2, e3, e4, e5, e6, e7, e8, e9];
 }
 
 entities.game.Hand0.name = "Hand0";
 entities.game.Hand0.load = function(world) {
-    var arch0 = world.createArchetype(game.PalmPivot, this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence, ut.Core2D.Sprite2DSequencePlayer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
+    var arch0 = world.createArchetype(game.palmPivot, this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence, ut.Core2D.Sprite2DSequencePlayer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
     var e0 = world.createEntity(arch0);
     world.setEntityName(e0, "Hand0");
     var arch1 = world.createArchetype(this.Component, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
@@ -3125,10 +2925,10 @@ entities.game.Hand0.load = function(world) {
     world.setComponentData(e0, c1);
     var c2 = new ut.Core2D.TransformLocalRotation();
     var s1 = new ut.Math.Quaternion();
-    s1.x = 0.008802043;
-    s1.y = 0.008649743;
-    s1.z = 0.008649744;
-    s1.w = 0.9998865;
+    s1.x = 0;
+    s1.y = 0;
+    s1.z = 0;
+    s1.w = 1;
     c2.rotation = s1;
     world.setComponentData(e0, c2);
     var c3 = new ut.Core2D.TransformLocalScale();
@@ -3148,7 +2948,12 @@ entities.game.Hand0.load = function(world) {
     c4.color = s3;
     c4.blending = 0;
     world.setComponentData(e0, c4);
-    var c5 = new ut.Core2D.Sprite2DSequence();
+    var c5 = new ut.Core2D.Sprite2DSequencePlayer();
+    c5.sequence = e0;
+    c5.loop = 4;
+    c5.speed = 1;
+    world.setComponentData(e0, c5);
+    var c6 = new ut.Core2D.Sprite2DSequence();
     var a0 = [ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE];
     a0[0] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand0 (1)');
     a0[1] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand0 (2)');
@@ -3156,47 +2961,40 @@ entities.game.Hand0.load = function(world) {
     a0[3] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand0 (4)');
     a0[4] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand0 (5)');
     a0[5] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand0 (6)');
-    c5.sprites = a0;
-    c5.frameRate = 12;
-    world.setComponentData(e0, c5);
-    var c6 = new ut.Core2D.Sprite2DSequencePlayer();
-    c6.sequence = e0;
-    c6.loop = 4;
-    c6.speed = 1;
+    c6.sprites = a0;
+    c6.frameRate = 12;
     world.setComponentData(e0, c6);
-    var c7 = new game.PalmPivot();
-    world.setComponentData(e0, c7);
-    var c8 = new ut.Core2D.TransformNode();
-    c8.parent = e0;
-    world.setComponentData(e1, c8);
-    var c9 = new ut.Core2D.TransformLocalPosition();
+    var c7 = new ut.Core2D.TransformNode();
+    c7.parent = e0;
+    world.setComponentData(e1, c7);
+    var c8 = new ut.Core2D.TransformLocalPosition();
     var s4 = new ut.Math.Vector3();
-    s4.x = -0.79;
+    s4.x = -0.6;
     s4.y = 6.4;
     s4.z = 0;
-    c9.position = s4;
-    world.setComponentData(e1, c9);
-    var c10 = new ut.Core2D.TransformLocalRotation();
+    c8.position = s4;
+    world.setComponentData(e1, c8);
+    var c9 = new ut.Core2D.TransformLocalRotation();
     var s5 = new ut.Math.Quaternion();
     s5.x = 0;
     s5.y = 0;
     s5.z = 0;
     s5.w = 1;
-    c10.rotation = s5;
-    world.setComponentData(e1, c10);
-    var c11 = new ut.Core2D.TransformLocalScale();
+    c9.rotation = s5;
+    world.setComponentData(e1, c9);
+    var c10 = new ut.Core2D.TransformLocalScale();
     var s6 = new ut.Math.Vector3();
-    s6.x = 0.05;
-    s6.y = 0.05;
+    s6.x = 1;
+    s6.y = 1;
     s6.z = 1;
-    c11.scale = s6;
-    world.setComponentData(e1, c11);
+    c10.scale = s6;
+    world.setComponentData(e1, c10);
     return [e0, e1];
 }
 
 entities.game.Hand1.name = "Hand1";
 entities.game.Hand1.load = function(world) {
-    var arch0 = world.createArchetype(game.PalmPivot, this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence, ut.Core2D.Sprite2DSequencePlayer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
+    var arch0 = world.createArchetype(game.palmPivot, this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence, ut.Core2D.Sprite2DSequencePlayer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
     var e0 = world.createEntity(arch0);
     world.setEntityName(e0, "Hand1");
     var arch1 = world.createArchetype(this.Component, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
@@ -3213,10 +3011,10 @@ entities.game.Hand1.load = function(world) {
     world.setComponentData(e0, c1);
     var c2 = new ut.Core2D.TransformLocalRotation();
     var s1 = new ut.Math.Quaternion();
-    s1.x = 0.008802043;
-    s1.y = 0.008649743;
-    s1.z = 0.008649744;
-    s1.w = 0.9998865;
+    s1.x = 0;
+    s1.y = 0;
+    s1.z = 0;
+    s1.w = 1;
     c2.rotation = s1;
     world.setComponentData(e0, c2);
     var c3 = new ut.Core2D.TransformLocalScale();
@@ -3252,39 +3050,37 @@ entities.game.Hand1.load = function(world) {
     c6.sprites = a0;
     c6.frameRate = 12;
     world.setComponentData(e0, c6);
-    var c7 = new game.PalmPivot();
-    world.setComponentData(e0, c7);
-    var c8 = new ut.Core2D.TransformNode();
-    c8.parent = e0;
-    world.setComponentData(e1, c8);
-    var c9 = new ut.Core2D.TransformLocalPosition();
+    var c7 = new ut.Core2D.TransformNode();
+    c7.parent = e0;
+    world.setComponentData(e1, c7);
+    var c8 = new ut.Core2D.TransformLocalPosition();
     var s4 = new ut.Math.Vector3();
-    s4.x = -0.76;
-    s4.y = 6.45;
+    s4.x = -0.6;
+    s4.y = 6.4;
     s4.z = 0;
-    c9.position = s4;
-    world.setComponentData(e1, c9);
-    var c10 = new ut.Core2D.TransformLocalRotation();
+    c8.position = s4;
+    world.setComponentData(e1, c8);
+    var c9 = new ut.Core2D.TransformLocalRotation();
     var s5 = new ut.Math.Quaternion();
     s5.x = 0;
     s5.y = 0;
     s5.z = 0;
     s5.w = 1;
-    c10.rotation = s5;
-    world.setComponentData(e1, c10);
-    var c11 = new ut.Core2D.TransformLocalScale();
+    c9.rotation = s5;
+    world.setComponentData(e1, c9);
+    var c10 = new ut.Core2D.TransformLocalScale();
     var s6 = new ut.Math.Vector3();
-    s6.x = 0.05;
-    s6.y = 0.05;
+    s6.x = 1;
+    s6.y = 1;
     s6.z = 1;
-    c11.scale = s6;
-    world.setComponentData(e1, c11);
+    c10.scale = s6;
+    world.setComponentData(e1, c10);
     return [e0, e1];
 }
 
 entities.game.Hand2.name = "Hand2";
 entities.game.Hand2.load = function(world) {
-    var arch0 = world.createArchetype(game.PalmPivot, this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence, ut.Core2D.Sprite2DSequencePlayer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
+    var arch0 = world.createArchetype(game.palmPivot, this.Component, ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence, ut.Core2D.Sprite2DSequencePlayer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
     var e0 = world.createEntity(arch0);
     world.setEntityName(e0, "Hand2");
     var arch1 = world.createArchetype(this.Component, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.layers.Default)
@@ -3301,10 +3097,10 @@ entities.game.Hand2.load = function(world) {
     world.setComponentData(e0, c1);
     var c2 = new ut.Core2D.TransformLocalRotation();
     var s1 = new ut.Math.Quaternion();
-    s1.x = 0.008802043;
-    s1.y = 0.008649743;
-    s1.z = 0.008649744;
-    s1.w = 0.9998865;
+    s1.x = 0;
+    s1.y = 0;
+    s1.z = 0;
+    s1.w = 1;
     c2.rotation = s1;
     world.setComponentData(e0, c2);
     var c3 = new ut.Core2D.TransformLocalScale();
@@ -3324,7 +3120,12 @@ entities.game.Hand2.load = function(world) {
     c4.color = s3;
     c4.blending = 0;
     world.setComponentData(e0, c4);
-    var c5 = new ut.Core2D.Sprite2DSequence();
+    var c5 = new ut.Core2D.Sprite2DSequencePlayer();
+    c5.sequence = e0;
+    c5.loop = 4;
+    c5.speed = 1;
+    world.setComponentData(e0, c5);
+    var c6 = new ut.Core2D.Sprite2DSequence();
     var a0 = [ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE, ut.Entity.NONE];
     a0[0] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand2 (1)');
     a0[1] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand2 (2)');
@@ -3332,48 +3133,39 @@ entities.game.Hand2.load = function(world) {
     a0[3] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand2 (4)');
     a0[4] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand2 (5)');
     a0[5] = ut.EntityLookupCache.getByName(world, 'assets/sprites/Hand2 (6)');
-    c5.sprites = a0;
-    c5.frameRate = 12;
-    world.setComponentData(e0, c5);
-    var c6 = new ut.Core2D.Sprite2DSequencePlayer();
-    c6.sequence = e0;
-    c6.loop = 4;
-    c6.speed = 1;
+    c6.sprites = a0;
+    c6.frameRate = 12;
     world.setComponentData(e0, c6);
-    var c7 = new game.PalmPivot();
-    world.setComponentData(e0, c7);
-    var c8 = new ut.Core2D.TransformNode();
-    c8.parent = e0;
-    world.setComponentData(e1, c8);
-    var c9 = new ut.Core2D.TransformLocalPosition();
+    var c7 = new ut.Core2D.TransformNode();
+    c7.parent = e0;
+    world.setComponentData(e1, c7);
+    var c8 = new ut.Core2D.TransformLocalPosition();
     var s4 = new ut.Math.Vector3();
-    s4.x = -0.67;
-    s4.y = 6.37;
+    s4.x = -0.6;
+    s4.y = 6.4;
     s4.z = 0;
-    c9.position = s4;
-    world.setComponentData(e1, c9);
-    var c10 = new ut.Core2D.TransformLocalRotation();
+    c8.position = s4;
+    world.setComponentData(e1, c8);
+    var c9 = new ut.Core2D.TransformLocalRotation();
     var s5 = new ut.Math.Quaternion();
     s5.x = 0;
     s5.y = 0;
     s5.z = 0;
     s5.w = 1;
-    c10.rotation = s5;
-    world.setComponentData(e1, c10);
-    var c11 = new ut.Core2D.TransformLocalScale();
+    c9.rotation = s5;
+    world.setComponentData(e1, c9);
+    var c10 = new ut.Core2D.TransformLocalScale();
     var s6 = new ut.Math.Vector3();
-    s6.x = 0.05;
-    s6.y = 0.05;
+    s6.x = 1;
+    s6.y = 1;
     s6.z = 1;
-    c11.scale = s6;
-    world.setComponentData(e1, c11);
+    c10.scale = s6;
+    world.setComponentData(e1, c10);
     return [e0, e1];
 }
 
 
 "use strict";
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
 * TINY GENERATED CODE, DO NOT EDIT BY HAND
@@ -3399,84 +3191,48 @@ var __extends = undefined && undefined.__extends || function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 }();
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    }return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+// criar as m�os *
+// Posicionar elas numa posi��o que at� agora eu n�o entendi aonde �
+// Mover a camera, dependendo da distancia entre a m�o criada e o click
+// Rescalar o tamanho e a rota��o das m�os
+// Randomizar o ID das m�os a cada click
+// 
 var game;
 (function (game) {
-    var CamMovement = /** @class */function (_super) {
-        __extends(CamMovement, _super);
-        function CamMovement() {
+    var Background = /** @class */function (_super) {
+        __extends(Background, _super);
+        function Background() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        CamMovement.prototype.OnUpdate = function () {
+        Background.prototype.OnUpdate = function () {
             var _this = this;
-            //Delta Time
             var dt = this.scheduler.deltaTime();
-            this.world.forEach([game.Movement, ut.Core2D.TransformLocalPosition, game.MousePressed, game.SpawnerTimers, game.lastPosition, game.Limits, game.Scales], function (movement, transformLocalPosition, mousePressed, spawner, lastPosition, limits, scales) {
-                var localPosition = transformLocalPosition.position;
-                if (ut.Runtime.Input.getMouseButton(0) || ut.Core2D.Input.touchCount() > 0) {
-                    var mouseInputPos_1 = ut.Runtime.Input.getWorldInputPosition(_this.world);
-                    if (mousePressed.mousePressed == false) {
-                        var random = Math.floor(Math.random() * (3 - 0)) + 0;
-                        while (mousePressed.actualHandId == random) {
-                            random = Math.floor(Math.random() * (3 - 0)) + 0;
-                        }
-                        mousePressed.actualHandId = random;
-                        mousePressed.mousePressed = true;
+            this.world.forEach([game.background, game.speed, ut.Core2D.TransformLocalPosition, game.lastPosition, game.delay], function (background, speed, localPosition, lastPosition, delay) {
+                var tempPos = localPosition.position;
+                if (ut.Runtime.Input.getMouseButton(0)) {
+                    var inputPos = ut.Runtime.Input.getInputPosition();
+                    var displayInfo = _this.world.getConfigData(ut.Core2D.DisplayInfo);
+                    var displayWidth = displayInfo.width;
+                    if (inputPos.x <= displayWidth / 2) {
+                        tempPos.x += speed.actualSpeed * dt;
+                    } else if (inputPos.x >= displayWidth / 2) {
+                        tempPos.x -= speed.actualSpeed * dt;
                     }
-                    var speed = Math.abs(mouseInputPos_1.x - lastPosition.x);
-                    if (speed < 10) {
-                        if (localPosition.x < mouseInputPos_1.x) {
-                            localPosition.x = localPosition.x + speed / 2 * dt;
-                        } else if (localPosition.x > mouseInputPos_1.x) {
-                            localPosition.x = localPosition.x - speed / 2 * dt;
-                        }
+                    var timer = delay.timer;
+                    var delayBetween = delay.delayBetween;
+                    timer += _this.scheduler.deltaTime();
+                    if (timer > delayBetween) {
+                        timer -= delayBetween;
+                        game.Spawner.handSpawn(_this.world, 1, lastPosition.pos, inputPos);
                     }
-                    if (localPosition.x < mouseInputPos_1.x) {
-                        localPosition.x = localPosition.x + speed * dt;
-                    } else if (localPosition.x > mouseInputPos_1.x) {
-                        localPosition.x = localPosition.x - speed * dt;
-                    }
-                    var time = spawner.time;
-                    var delay = spawner.delay;
-                    time -= _this.scheduler.deltaTime();
-                    if (time <= 0) {
-                        var instance = ut.EntityGroup.instantiate(_this.world, "game.Hand" + mousePressed.actualHandId)[0];
-                        _this.world.usingComponentData(instance, [ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalScale, ut.Core2D.TransformLocalRotation, game.PalmPivot], function (handPosition, handScale, handRotation, pivot) {
-                            var tempPos = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
-                            var angle = Math.atan2(mouseInputPos_1.y - lastPosition.y, mouseInputPos_1.x - lastPosition.x) - Math.PI / 2;
-                            handRotation.rotation = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), angle);
-                            handPosition.position = tempPos;
-                            if (scales.actualScale == 0) {
-                                scales.actualScale = handScale.scale.x + 0.03;
-                                ;
-                            }
-                            handScale.scale.x = scales.actualScale - 0.03;
-                            handScale.scale.y = scales.actualScale - 0.03;
-                            scales.actualScale = scales.actualScale - 0.03;
-                        });
-                        time += delay;
-                    }
-                    spawner.time = time;
-                } else {
-                    mousePressed.mousePressed = false;
-                    spawner.time = 0;
-                    spawner.delay = 1;
-                    scales.actualScale = 0.3;
+                    delay.timer = timer;
                 }
-                transformLocalPosition.position = localPosition;
+                localPosition.position = tempPos;
             });
         };
-        CamMovement = __decorate([ut.executeAfter(ut.Shared.InputFence)], CamMovement);
-        return CamMovement;
+        return Background;
     }(ut.ComponentSystem);
-    game.CamMovement = CamMovement;
+    game.Background = Background;
 })(game || (game = {}));
 var game;
 (function (game) {
@@ -3496,11 +3252,12 @@ var game;
         HandBehavior.prototype.OnEntityEnable = function () {
             var testPalm = ut.Core2D.TransformService.getChild(this.world, this.entity, 0);
             var tempPos = ut.Core2D.TransformService.computeWorldPosition(this.world, testPalm);
-            var camera = this.world.getEntityByName("Camera");
-            this.world.usingComponentData(camera, [game.lastPosition], function (lastPosition) {
-                lastPosition.x = tempPos.x;
-                lastPosition.y = tempPos.y;
-                lastPosition.z = tempPos.z;
+            var background = this.world.getEntityByName("Background");
+            console.log(tempPos);
+            this.world.usingComponentData(background, [game.lastPosition], function (lastPosition) {
+                lastPosition.pos.x = tempPos.x;
+                lastPosition.pos.y = tempPos.y;
+                lastPosition.pos.z = tempPos.z;
             });
         };
         return HandBehavior;
@@ -3509,14 +3266,29 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
-    var HandUtilities = /** @class */function () {
-        function HandUtilities() {}
-        HandUtilities.spawnHand = function (world, id) {
-            var instance = ut.EntityGroup.instantiate(world, "game.Hand" + id)[0];
+    var TransformNode = ut.Core2D.TransformNode;
+    var TransformLocalScale = ut.Core2D.TransformLocalScale;
+    var TransformLocalPosition = ut.Core2D.TransformLocalPosition;
+    var TransformLocalRotation = ut.Core2D.TransformLocalRotation;
+    var Spawner = /** @class */function () {
+        function Spawner() {}
+        Spawner.handSpawn = function (world, actualHandId, lastPosition, inputPos) {
+            var handEntity = ut.EntityGroup.instantiate(world, "game.Hand" + actualHandId)[0];
+            var background = world.getEntityByName("Background");
+            world.usingComponentData(handEntity, [TransformNode, TransformLocalPosition, TransformLocalScale, TransformLocalRotation], function (handNode, handPosition, handScale, handRotation) {
+                var displayInfo = world.getConfigData(ut.Core2D.DisplayInfo);
+                var displaySize = new Vector2(displayInfo.width, displayInfo.height);
+                var tempPos = ut.Core2D.TransformService.windowToWorld(world, world.getEntityByName("Camera"), inputPos, displaySize);
+                var angle = Math.atan2(tempPos.y - lastPosition.y, tempPos.x - lastPosition.x) - Math.PI / 2;
+                handRotation.rotation = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), angle);
+                console.log(lastPosition);
+                handNode.parent = background;
+                handPosition.position = lastPosition;
+            });
         };
-        return HandUtilities;
+        return Spawner;
     }();
-    game.HandUtilities = HandUtilities;
+    game.Spawner = Spawner;
 })(game || (game = {}));
 var ut;
 (function (ut) {
@@ -3612,12 +3384,12 @@ ut.importModule(ut.Rendering);
 ut.importModule(ut.Core2D);
 ut.main = function() {
     game.HandBehaviorFilter._Components = [ut.Entity, 
-        ut.Core2D.TransformLocalPosition, game.PalmPivot
+        ut.Core2D.TransformLocalPosition, game.palmPivot
     ];
     game.HandBehaviorFilter.prototype.Read = function(world, entity) {
         this.entity = entity;
         this.position = world.getComponentData(entity, ut.Core2D.TransformLocalPosition);
-        this.palm = world.getComponentData(entity, game.PalmPivot);
+        this.palm = world.getComponentData(entity, game.palmPivot);
     };
     game.HandBehaviorFilter.prototype.Reset = function() {
         this.entity = undefined;
@@ -3644,14 +3416,14 @@ ut.main = function() {
 
     // Schedule all systems
     var scheduler = world.scheduler();
+    game.BackgroundJS.update = new game.Background()._MakeSystemFn();
     game.HandBehavior_OnEntityEnableJS.update = game.HandBehavior.Instance._MakeOnEntityEnable();
-    game.CamMovementJS.update = new game.CamMovement()._MakeSystemFn();
+    scheduler.schedule(game.BackgroundJS);
     scheduler.schedule(ut.HTML.InputHandler);
     scheduler.schedule(ut.HTML.AssetLoader);
     scheduler.schedule(ut.Core2D.SequencePlayerSystem);
     scheduler.schedule(game.HandBehavior_OnEntityEnableJS);
     scheduler.schedule(ut.Shared.InputFence);
-    scheduler.schedule(game.CamMovementJS);
     scheduler.schedule(ut.Shared.UserCodeStart);
     scheduler.schedule(ut.Shared.UserCodeEnd);
     scheduler.schedule(ut.Shared.RenderingFence);
